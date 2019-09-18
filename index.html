@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MVVM</title>
+</head>
+<body>
+    <span id="container">1</span>
+    <button id="button">点击加1</button>
+    <script>
+      
+      // MVVM 是前端的设计模式 MVC
+        let obj = { value: 1} // Model
+     //   会通过ajax 从服务器端拿到
+     // 数据可以变 get set value +-
+     // vue data() {} {{}}
+     //  document.getElementById('button')
+     //      .addEventListener('click',function(){
+     //          obj.value++;
+     //          document.getElementById('container')
+     //            .innerHTML = obj.value;
+     //      })
+         let value = 1;
+        //   视图层模型
+         Object.defineProperties(obj,"value",{
+             get:function(){
+                 return value;
+             },
+             set:function(newValue){
+                 value = newValue;
+                 document.getElementById('container').innerHTML = newValue;
+             }
+        })
+        document.getElementById('button')
+           .addEventListener('click',function(){
+               obj.value++;
+           })
+    </script>
+</body>
+</html>
